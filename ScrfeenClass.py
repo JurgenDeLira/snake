@@ -7,7 +7,7 @@ class Scrfeen:
         self.ventana.title(titulo)
         self.ventana.bgcolor(fondo)
         self.ventana.setup(width=ancho, height= alto)
-        self.ventana.tracer(0)
+        #self.ventana.tracer(0)
         canvas = self.ventana.getcanvas()
         root =   canvas.winfo_toplevel()  
         root.protocol("WM_DELETE_WINDOW",self.on_close)
@@ -63,7 +63,6 @@ class Scrfeen:
 
 
         self.ventana.update()
-
 
 
 

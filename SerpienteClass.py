@@ -176,3 +176,12 @@ actualizar()
 scrfeen.ventana.mainloop()'''
 
 
+
+
+
+
+
+
+
+
+
