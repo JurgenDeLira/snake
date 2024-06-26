@@ -1,11 +1,14 @@
 import turtle
 from ScrfeenClass import Scrfeen
 from PIL import Image
-
+from MenuNivelesClass import MenuNiveles
+from CalificacionesMenuClass import CalificacionesMenu
+from AcercaDeClass import AcercaDe
 class MenuInicial():
-    def __init__(self, scrfeen):
+    def __init__(self, scrfeen, initGame):
         self.pantalla = scrfeen.ventana
         self.scrfeen = scrfeen
+        self.initGame = initGame
 
         self.opciones = ["Iniciar Juego", "Ver Puntajes", "Acerca De"]
         self.opcion_seleccionada = None
@@ -85,17 +88,22 @@ class MenuInicial():
        self.opcion_seleccionada =  self.opciones[self.opcion_actual]
 
        self.pantalla.clear()
+       ventana = Scrfeen(600,600, "Juego de snake", "black")
+
 
        if self.opcion_seleccionada.lower() == "iniciar juego":
-           print("navegar al juego")
+           menu_niveles = MenuNiveles(ventana, self.backMethod, self.initGame)
        elif self.opcion_seleccionada.lower() == "ver puntajes":
-           print("navegar a ver puntajes")
+          menu = CalificacionesMenu(ventana, self.backMethod)
        elif self.opcion_seleccionada.lower() == "acerca de":
-           print("navegar a acerca de")
+          menu = AcercaDe(ventana, self.backMethod)
        else:
            print("otro")
            
-    
+    def backMethod(self):
+        ventana = Scrfeen(600,600, "Juego de snake", "black")
+        menu = MenuInicial(ventana,self.initGame )
+
 
 
 
@@ -118,16 +126,13 @@ class MenuInicial():
 
 ##### Código ejemplo
 
-"""
+def initGame(delay):
+    print(delay)
+
+
 ventana = Scrfeen(600, 600, "Juego de Snake", "black")
 
-menu = MenuInicial(ventana)
-
-"""
-
-
-
-
+menu = MenuInicial(ventana,initGame)
 
 
 
