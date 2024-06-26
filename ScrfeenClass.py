@@ -63,6 +63,3 @@ class Scrfeen:
 
 
         self.ventana.update()
-
-
-
